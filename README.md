@@ -90,15 +90,15 @@ class MyComponent extends React.Component {
                 .phone()
     };
 
-	// Apply validators to text fields (Just an example of a possible implementation):
+    // Apply validators to text fields (Just an example of a possible implementation):
     render() {
         return (
             <MyInputComponent validator={this.validators.password} onChange=this.setState/>
             <MyInputComponent validator={this.validators.phone} onChange=this.setState/>
         )
     }
-
-	// This function checks if the fields are valid to enable the send button in the form:
+    
+    // This function checks if the fields are valid to enable the send button in the form:
     formIsValid() {
         const { password, phoneNumber } = this.state;
 
