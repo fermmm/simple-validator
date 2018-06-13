@@ -2,6 +2,7 @@
 
 This library validates content from input fields like: e-mail, name, ID, or anything. 
 There is no visual implementation so it's not tied to any other library, could be used on front-end or back-end. To use it in front-end a visual representation of the results must be implemented by you.
+
 ```
 Features:
     * Simple: only needs a string (the text of the input field), no complex setup required.
@@ -9,7 +10,9 @@ Features:
     * Returns the position of the validation problem in the string (to implement underline).
     * Returns an autocorrected version of the text (to implement autocorrect).
     * You build the rules of the validation to cover any validation logic needed (see below).
+    * Created in Typescript
 ```
+
 Supported languages for error messages: English and Spanish.
 
 ## Library core concept
@@ -21,7 +24,7 @@ With this tool you can write your validator rules in the simplest syntax possibl
 
 Everything is inside the "Validation" class, you need to chain methods creating like a query with the validation requirements, example:
 
-```
+```javascript
 const name = "roberto666";
 cost validationInfo = new Validation(name)
                         .noNumbersAllowed(false)    // We set autocorrect to false for this rule to see how errors are returned.
@@ -37,7 +40,7 @@ console.log(validationInfo.result);
 
 Prints the following object:
 
-```
+```javascript
 {
     text: "Roberto666",             // Notice the uppercase first letter was auto-corrected and this is the correct version.
     textOriginal: "roberto666",
@@ -53,7 +56,7 @@ Prints the following object:
 
 Also there is a "presets" property to use already made common validation querys like for e-mal or phoone validation, example:
 
-```
+```javascript
 const phone = "1536850018"
 const validation = new Validation(phone).presets.countrySpecific.ar.phone();
 // This library is made by someone in argentina, sorry, only ar phones are supported, but you can build your own.
@@ -62,7 +65,7 @@ const validation = new Validation(phone).presets.countrySpecific.ar.phone();
 
 By default error messages are objects that contains the error in all the languages, to return an error object with only one language call this before other library calls:
 
-```
+```javascript
 Validation.languageFilter = LanguageFilter.english;
 ```
 
@@ -71,10 +74,10 @@ This is useful server side, to improve performance when creating a JSON with the
 
 ## Usage example with React
 
-```
+```javascript
 // Create the validators (Warning: in arrow functions if you write the {} you must also write return):
 class MyComponent extends React.Component{
-	validators = {
+    validators = {
         password: (t) =>
             new Validation(t)
                 .minChars(6)
