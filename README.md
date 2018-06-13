@@ -54,7 +54,7 @@ Prints the following object:
 }
 ```
 
-Also there is a "presets" property to use already made common validation querys like for e-mal or phoone validation, example:
+Also there is a "presets" property to use already made common validation querys like for e-mal or phone validation, example:
 
 ```javascript
 const phone = "1536850018"
@@ -91,7 +91,7 @@ class MyComponent extends React.Component {
     };
 
 	// Apply validators to text fields (Just an example of a possible implementation):
-	render() {
+    render() {
         return (
             <MyInputComponent validator={this.validators.password} onChange=this.setState/>
             <MyInputComponent validator={this.validators.phone} onChange=this.setState/>
