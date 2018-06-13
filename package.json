@@ -1,0 +1,49 @@
+{
+    "name": "simple-validator",
+    "version": "1.4.5",
+    "description": "Simple form validator and autocorrector.",
+    "main": "dist/library/index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "webpack",
+        "build:release": "tsc -d",
+        "start": "webpack-dev-server"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/fermmm/simple-validator"
+    },
+    "author": "Fernando Medina",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/fermmm/simple-validator"
+    },
+    "homepage": "https://github.com/fermmm/simple-validator#readme",
+    "publishConfig": {
+        "registry": "https://github.com/fermmm/simple-validator"
+    },
+    "devDependencies": {
+        "babel-core": "6.26.0",
+        "babel-loader": "7.1.4",
+        "css-loader": "0.28.11",
+        "csv-loader": "2.1.1",
+        "expose-loader": "0.7.5",
+        "file-loader": "1.1.11",
+        "node-sass": "4.8.3",
+        "open-browser-webpack-plugin": "0.0.5",
+        "sass-loader": "6.0.7",
+        "script-loader": "0.7.2",
+        "source-map-loader": "0.2.3",
+        "style-loader": "0.20.3",
+        "ts-loader": "4.1.0",
+        "tslint": "^5.9.1",
+        "typescript": "^2.8.1",
+        "uglifyjs-webpack-plugin": "^1.1.6",
+        "webpack": "^4.6.0",
+        "webpack-cli": "^2.0.14",
+        "webpack-dev-server": "3.1.1",
+        "webpack-notifier": "1.6.0",
+        "xml-loader": "1.2.1"
+    },
+    "dependencies": {}
+}

@@ -1,0 +1,24 @@
+{
+    "compileOnSave": false,
+    "compilerOptions": {
+        "outDir": "./dist/library",
+        "noImplicitAny": true,
+        "module": "commonjs",
+        "target": "es5",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "lib": [
+            "es2015",
+            "dom"
+        ],
+        "moduleResolution": "node",
+        "sourceMap": false,
+        "suppressImplicitAnyIndexErrors": true,
+        "jsx": "react"
+    },
+    "exclude": [
+        "node_modules",
+        "tests",
+        "dist"
+    ],
+}
