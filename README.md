@@ -22,6 +22,11 @@ With this tool you can write your validator rules in the simplest syntax possibl
 
 ## Getting Started
 
+To install run:
+```
+npm i simple-validator-js
+```
+
 Everything is inside the "Validation" class, you need to chain methods creating like a query with the validation requirements, example:
 
 ```javascript

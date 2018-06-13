@@ -1,5 +1,5 @@
 {
-    "name": "simple-validator",
+    "name": "simple-validator-js",
     "version": "1.4.5",
     "description": "Simple form validator and autocorrector.",
     "main": "dist/library/index.js",
@@ -19,9 +19,6 @@
         "url": "https://github.com/fermmm/simple-validator"
     },
     "homepage": "https://github.com/fermmm/simple-validator#readme",
-    "publishConfig": {
-        "registry": "https://github.com/fermmm/simple-validator"
-    },
     "devDependencies": {
         "babel-core": "6.26.0",
         "babel-loader": "7.1.4",
