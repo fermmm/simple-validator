@@ -1,4 +1,3 @@
-import { Presets } from "./presets/Presets";
 import { ErrorTexts } from "./strings/ErrorTexts";
 import { CharacterTypeValidators } from "./validators/CharacterTypeValidators";
 import { ContentValidators } from "./validators/ContentValidators";
@@ -64,12 +63,6 @@ export class Validation {
     public result: IValidationResults;
 
     /**
-     * Use this to make validations using already made querys for common things like e-mail validation.
-     */
-    public presets: Presets;
-
-
-    /**
      * After calling the constructor you can start chaining methods to validate.
      * @param text The text to validate, usually an input field text.
      * @param canBeEmpty Report error when the field is empty. Default: false.
@@ -81,8 +74,6 @@ export class Validation {
             text: text,
             textOriginal: text,
         };
-
-        this.presets = new Presets(this);
 
         if (!canBeEmpty && (text == null || !text.replace(/\s/g, "").length || text === "")) {
             this.result.isValid = false;
@@ -230,6 +221,14 @@ export class Validation {
      */
     public customRegex(regex: RegExp, invert: boolean = false): Validation {
         return ContentValidators.customRegex(this, regex, invert);
+    }
+
+    /**
+     * Email validator rule. Does not report error details, only if it's valid or not.
+     */
+    public isEmail(): Validation {
+        // tslint:disable-next-line:max-line-length
+        return ContentValidators.customRegex(this, /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
     }
 }
 

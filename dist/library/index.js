@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var Presets_1 = require("./presets/Presets");
 var ErrorTexts_1 = require("./strings/ErrorTexts");
 var CharacterTypeValidators_1 = require("./validators/CharacterTypeValidators");
 var ContentValidators_1 = require("./validators/ContentValidators");
@@ -67,7 +66,6 @@ var Validation = /** @class */ (function () {
             text: text,
             textOriginal: text,
         };
-        this.presets = new Presets_1.Presets(this);
         if (!canBeEmpty && (text == null || !text.replace(/\s/g, "").length || text === "")) {
             this.result.isValid = false;
             this.result.errors.push({
@@ -212,6 +210,13 @@ var Validation = /** @class */ (function () {
     Validation.prototype.customRegex = function (regex, invert) {
         if (invert === void 0) { invert = false; }
         return ContentValidators_1.ContentValidators.customRegex(this, regex, invert);
+    };
+    /**
+     * Email validator rule. Does not report error details, only if it's valid or not.
+     */
+    Validation.prototype.isEmail = function () {
+        // tslint:disable-next-line:max-line-length
+        return ContentValidators_1.ContentValidators.customRegex(this, /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
     };
     /**
      * Filter to set the language of the text returned and avoid big objects containing text for all languages. Default: "all".

@@ -63,13 +63,6 @@ Prints the following object:
 }
 ```
 
-Also there is a "presets" property to use already made common validation querys like for e-mal or phone validation, example:
-
-```javascript
-const phone = "1536850018"
-const validation = new Validation(phone).presets.countrySpecific.ar.phone();
-// This library is made by someone in argentina, sorry, only ar phones are supported, but you can build your own.
-```
 ## Library configuration
 
 By default error messages are objects that contains the error in all the languages, to return an error object with only one language call this before other library calls:
@@ -102,8 +95,8 @@ class MyComponent extends React.Component {
     // Apply validators to text fields (Just an example of a possible implementation):
     render() {
         return (
-            <MyInputComponent validator={this.validators.password} onChange=this.setState/>
-            <MyInputComponent validator={this.validators.phone} onChange=this.setState/>
+            <MyInputComponent validator={this.validators.password} onChange={this.setState(...)}/>
+            <MyInputComponent validator={this.validators.phone} onChange={this.setState(...)}/>
         )
     }
     

@@ -1,4 +1,3 @@
-import { Presets } from "./presets/Presets";
 /**
  * Filter to set the language of the text returned and avoid big objects containing text for all languages.
  */
@@ -16,10 +15,6 @@ export declare class Validation {
      * The results of the validation are stored in this property.
      */
     result: IValidationResults;
-    /**
-     * Use this to make validations using already made querys for common things like e-mail validation.
-     */
-    presets: Presets;
     /**
      * After calling the constructor you can start chaining methods to validate.
      * @param text The text to validate, usually an input field text.
@@ -107,6 +102,10 @@ export declare class Validation {
      * @param invert To switch, so the regex allows or dissallows the validation.
      */
     customRegex(regex: RegExp, invert?: boolean): Validation;
+    /**
+     * Email validator rule. Does not report error details, only if it's valid or not.
+     */
+    isEmail(): Validation;
 }
 export interface IValidationResults {
     /**
