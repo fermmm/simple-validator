@@ -1,7 +1,7 @@
 # SIMPLE VALIDATOR
 
 This library validates content from input fields like: e-mail, name, ID, or anything. 
-There is no visual implementation so it's not tied to any other library, could be used on front-end or back-end. To use it in front-end a visual representation of the results must be implemented by you.
+There is no visual implementation so it's not tied to any other library, can be used on front-end or back-end. To use it in front-end a visual representation of the results must be implemented by you.
 
 ```
 Features:
@@ -32,8 +32,10 @@ npm i simple-validator-js
 Everything is inside the "Validation" class, you need to chain methods creating like a query with the validation requirements, example:
 
 ```javascript
+import {Validation} from 'simple-validator-js';
+
 const name = "roberto666";
-cost validationInfo = new Validation(name)
+const validationInfo = new Validation(name)
                         .noNumbersAllowed(false)    // We set autocorrect to false for this rule to see how errors are returned.
                         .noSpacesAllowed()
                         .noSpecialCharactersAllowed(true, null)
