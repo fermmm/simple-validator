@@ -1,6 +1,6 @@
 {
     "name": "simple-validator-js",
-    "version": "1.4.8",
+    "version": "1.5.0",
     "description": "Simple form validator and autocorrector.",
     "main": "dist/library/index.js",
     "scripts": {
@@ -23,7 +23,8 @@
         "fields",
         "ui",
         "autocorrect",
-        "simple"
+        "simple",
+        "react"
     ],
     "bugs": {
         "url": "https://github.com/fermmm/simple-validator"
