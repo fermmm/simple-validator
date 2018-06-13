@@ -76,12 +76,12 @@ This is useful server side, to improve performance when creating a JSON with the
 
 ```javascript
 // Create the validators (Warning: in arrow functions if you write the {} you must also write return):
-class MyComponent extends React.Component{
+class MyComponent extends React.Component {
     validators = {
         password: (t) =>
             new Validation(t)
                 .minChars(6)
-    		    .maxChars(70),
+                .maxChars(70),
         phone: (t) =>
             new Validation(t)
     		    .presets
