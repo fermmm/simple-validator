@@ -75,33 +75,36 @@ This is useful server side, to improve performance when creating a JSON with the
 // Create the validators (Warning: in arrow functions if you write the {} you must also write return):
 class MyComponent extends React.Component{
 	validators = {
-    phone: (t) =>
-      new Validation(t)
-    		.presets.countrySpecific.ar.phone(),
-    password: (t) =>
-      new Validation(t)
-    		.minChars(6)
-    		.maxChars(70)
-  };
+        password: (t) =>
+            new Validation(t)
+                .minChars(6)
+    		    .maxChars(70),
+        phone: (t) =>
+            new Validation(t)
+    		    .presets
+                .countrySpecific
+                .ar
+                .phone()
+    };
 
-	// Apply validators (Just an example of a possible implementation):
+	// Apply validators to text fields (Just an example of a possible implementation):
 	render() {
-    return (
-      <MyInputComponent validator={this.validators.password} onChange=this.setState/>
-      <MyInputComponent validator={this.validators.phone} onChange=this.setState/>
-    )
-  }
+        return (
+            <MyInputComponent validator={this.validators.password} onChange=this.setState/>
+            <MyInputComponent validator={this.validators.phone} onChange=this.setState/>
+        )
+    }
 
-	// Check if the fields are valid to enable the send button in the form:
-  formIsValid() {
-    const { password, phoneNumber } = this.state;
+	// This function checks if the fields are valid to enable the send button in the form:
+    formIsValid() {
+        const { password, phoneNumber } = this.state;
 
-    return (
-      this.validators.password(password).result.isValid &&
-      this.validators.phone(phoneNumber).result.isValid
-    );
-  }
+        return (
+            this.validators.password(password).result.isValid &&
+            this.validators.phone(phoneNumber).result.isValid
+        );
+    }
 }
 ```
 
-MyInputComponent renders the validation results, that component is not provided here, is only an example of a possible implementation.
+MyInputComponent renders the validation results, that component is not provided here, is only an example of how a possible implementation can be written.
