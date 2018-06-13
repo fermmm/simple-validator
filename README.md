@@ -86,10 +86,7 @@ class MyComponent extends React.Component {
                 .maxChars(70),
         phone: (t) =>
             new Validation(t)
-                .presets
-                .countrySpecific
-                .ar
-                .phone()
+                .isEmail()
     };
 
     // Apply validators to text fields (Just an example of a possible implementation):
