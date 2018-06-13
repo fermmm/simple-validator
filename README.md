@@ -4,11 +4,11 @@ This library validates content from input fields like: e-mail, name, ID, or anyt
 There is no visual implementation so it's not tied to any other library, could be used on front-end or back-end. To use it in front-end a visual representation of the results must be implemented by you.
 
 Features:
-    - Simple: only needs a string (the text of the input field), no complex setup required.
-    - Returns a specific description of the validation problem.
-    - Returns the position of the validation problem in the string (to implement underline).
-    - Returns an autocorrected version of the text (to implement autocorrect).
-    - You build the rules of the validation to cover any validation logic needed (see below).
+    * Simple: only needs a string (the text of the input field), no complex setup required.
+    * Returns a specific description of the validation problem.
+    * Returns the position of the validation problem in the string (to implement underline).
+    * Returns an autocorrected version of the text (to implement autocorrect).
+    * You build the rules of the validation to cover any validation logic needed (see below).
 
 Supported languages for error messages: English and Spanish.
 
