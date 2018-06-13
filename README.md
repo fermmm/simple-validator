@@ -116,3 +116,7 @@ class MyComponent extends React.Component {
 ```
 
 MyInputComponent renders the validation results, that component is not provided here, is only an example of how a possible implementation can be written.
+
+## Donate
+
+If you like this library and want it to become something even better, please donate [here]: https://www.paypal.me/fermmm
