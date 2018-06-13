@@ -11,6 +11,8 @@ Features:
     * Returns an autocorrected version of the text (to implement autocorrect).
     * You build the rules of the validation to cover any validation logic needed (see below).
     * Created in Typescript
+    * Tested in production
+    * Fully documented with jsdoc and TypeScript, you should see documentation with autocomplete.
 ```
 
 Supported languages for error messages: English and Spanish.
