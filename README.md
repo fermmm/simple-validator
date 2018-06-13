@@ -84,7 +84,7 @@ class MyComponent extends React.Component {
                 .maxChars(70),
         phone: (t) =>
             new Validation(t)
-    		    .presets
+                .presets
                 .countrySpecific
                 .ar
                 .phone()
