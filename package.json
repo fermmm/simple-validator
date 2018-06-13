@@ -1,6 +1,6 @@
 {
     "name": "simple-validator-js",
-    "version": "1.4.5",
+    "version": "1.4.6",
     "description": "Simple form validator and autocorrector.",
     "main": "dist/library/index.js",
     "scripts": {
@@ -15,6 +15,16 @@
     },
     "author": "Fernando Medina",
     "license": "MIT",
+    "keywords": [
+        "validation",
+        "validator",
+        "forms",
+        "input",
+        "fields",
+        "ui",
+        "autocorrect",
+        "simple"
+    ],
     "bugs": {
         "url": "https://github.com/fermmm/simple-validator"
     },
