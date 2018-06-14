@@ -1,7 +1,8 @@
 # SIMPLE VALIDATOR
 
 This library validates content from input fields like: e-mail, name, ID, or anything. 
-There is no visual implementation so it's not tied to any other library, can be used on front-end or back-end. To use it in front-end a visual representation of the results must be implemented by you.
+There is no built in visual implementation so it's not tied to any other library, can be used on front-end or back-end.
+A visual implementation example in React is available [in this repository.](https://github.com/fermmm/simple-validator-react) 
 
 ```
 Features:
