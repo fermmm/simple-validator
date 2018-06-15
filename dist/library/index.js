@@ -1,4 +1,12 @@
 "use strict";
+var __assign = (this && this.__assign) || Object.assign || function(t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+        s = arguments[i];
+        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+            t[p] = s[p];
+    }
+    return t;
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 var ErrorTexts_1 = require("./strings/ErrorTexts");
 var CharacterTypeValidators_1 = require("./validators/CharacterTypeValidators");
@@ -206,9 +214,11 @@ var Validation = /** @class */ (function () {
      *
      * @param regex Regex expression.
      * @param invert To switch, so the regex allows or dissallows the validation.
+     * @param name This will be showed in the error as the first word before "is invalid", example: content is invalid.
      */
-    Validation.prototype.customRegex = function (regex, invert) {
+    Validation.prototype.customRegex = function (regex, invert, name) {
         if (invert === void 0) { invert = false; }
+        if (name === void 0) { name = ""; }
         return ContentValidators_1.ContentValidators.customRegex(this, regex, invert);
     };
     /**
@@ -216,7 +226,7 @@ var Validation = /** @class */ (function () {
      */
     Validation.prototype.isEmail = function () {
         // tslint:disable-next-line:max-line-length
-        return ContentValidators_1.ContentValidators.customRegex(this, /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
+        return ContentValidators_1.ContentValidators.customRegex(this, /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/, false, "email");
     };
     /**
      * Filter to set the language of the text returned and avoid big objects containing text for all languages. Default: "all".
@@ -226,14 +236,27 @@ var Validation = /** @class */ (function () {
 }());
 exports.Validation = Validation;
 /**
- * Returns the error text in the configured language filter.
+ * Returns the error text in the configured language filter. You can also add thext at the beginning with the textToAdd parameter.
  */
-function getErrorInLanguage(allLanguagesError) {
-    if (Validation.languageFilter === LanguageFilter.all) {
-        return allLanguagesError;
+function getErrorInLanguage(allLanguagesError, textToAdd) {
+    if (textToAdd === void 0) { textToAdd = ""; }
+    // Clone the errors object to modify it:
+    var allLangErrors = __assign({}, allLanguagesError);
+    // Add the extra text if any:
+    if (textToAdd && textToAdd !== "") {
+        for (var key in allLangErrors) {
+            if (allLangErrors.hasOwnProperty(key)) {
+                allLangErrors[key] = textToAdd + " " + allLangErrors[key];
+            }
+        }
     }
+    // If there is no language filter just return all as they entered in this function.
+    if (Validation.languageFilter === LanguageFilter.all) {
+        return allLangErrors;
+    }
+    // If there is a language filter create an empty error object with just a single language string on it (the selected one).
     var result = {};
-    result[Validation.languageFilter] = allLanguagesError[Validation.languageFilter];
+    result[Validation.languageFilter] = allLangErrors[Validation.languageFilter];
     return result;
 }
 exports.getErrorInLanguage = getErrorInLanguage;

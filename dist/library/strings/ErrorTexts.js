@@ -85,7 +85,7 @@ var ErrorTexts = /** @class */ (function () {
     };
     ErrorTexts.CUSTOM_REGEX = {
         en: "is invalid.",
-        es: "no es valido.",
+        es: "es inválido.",
     };
     ErrorTexts.FIRST_LETTER_UPPERCASE = {
         en: "the first character should be upper case.",

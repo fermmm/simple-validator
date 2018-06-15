@@ -157,8 +157,9 @@ var ContentValidators = /** @class */ (function () {
         }
         return validation;
     };
-    ContentValidators.customRegex = function (validation, regex, invert) {
+    ContentValidators.customRegex = function (validation, regex, invert, name) {
         if (invert === void 0) { invert = false; }
+        if (name === void 0) { name = ""; }
         var result = regex.test(validation.result.text);
         if (invert) {
             result = !result;
@@ -166,7 +167,7 @@ var ContentValidators = /** @class */ (function () {
         if (!result) {
             validation.result.isValid = false;
             validation.result.errors.push({
-                description: __1.getErrorInLanguage(ErrorTexts_1.ErrorTexts.CUSTOM_REGEX),
+                description: __1.getErrorInLanguage(ErrorTexts_1.ErrorTexts.CUSTOM_REGEX, name),
                 locations: [],
             });
         }

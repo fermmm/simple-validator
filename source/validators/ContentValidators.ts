@@ -181,7 +181,7 @@ export class ContentValidators {
       return validation;
     }
 
-    public static customRegex(validation: Validation, regex: RegExp, invert: boolean = false): Validation {
+    public static customRegex(validation: Validation, regex: RegExp, invert: boolean = false, name: string = ""): Validation {
         let result: boolean = regex.test(validation.result.text);
 
         if (invert) {
@@ -191,7 +191,7 @@ export class ContentValidators {
         if (!result) {
             validation.result.isValid = false;
             validation.result.errors.push({
-                description: getErrorInLanguage(ErrorTexts.CUSTOM_REGEX),
+                description: getErrorInLanguage(ErrorTexts.CUSTOM_REGEX, name),
                 locations: [],
             });
         }

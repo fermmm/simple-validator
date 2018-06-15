@@ -100,8 +100,9 @@ export declare class Validation {
      *
      * @param regex Regex expression.
      * @param invert To switch, so the regex allows or dissallows the validation.
+     * @param name This will be showed in the error as the first word before "is invalid", example: content is invalid.
      */
-    customRegex(regex: RegExp, invert?: boolean): Validation;
+    customRegex(regex: RegExp, invert?: boolean, name?: string): Validation;
     /**
      * Email validator rule. Does not report error details, only if it's valid or not.
      */
@@ -149,6 +150,6 @@ export interface IValidationStored {
     validationResult?: IValidationResults;
 }
 /**
- * Returns the error text in the configured language filter.
+ * Returns the error text in the configured language filter. You can also add thext at the beginning with the textToAdd parameter.
  */
-export declare function getErrorInLanguage(allLanguagesError: IValidationErrorText): IValidationErrorText;
+export declare function getErrorInLanguage(allLanguagesError: IValidationErrorText, textToAdd?: string): IValidationErrorText;

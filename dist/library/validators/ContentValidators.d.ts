@@ -6,5 +6,5 @@ export declare class ContentValidators {
     static shouldContainAt(validation: Validation, textOrCharacter: string, positionIndex: number, fromTheBeginning?: boolean, autocorrect?: boolean): Validation;
     static passwordConfirmation(validation: Validation, password: string | (() => string)): Validation;
     static emailConfirmation(validation: Validation, email: string | (() => string)): Validation;
-    static customRegex(validation: Validation, regex: RegExp, invert?: boolean): Validation;
+    static customRegex(validation: Validation, regex: RegExp, invert?: boolean, name?: string): Validation;
 }

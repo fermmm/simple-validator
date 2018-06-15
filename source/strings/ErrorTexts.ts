@@ -104,7 +104,7 @@ export class ErrorTexts {
 
   public static CUSTOM_REGEX: IValidationErrorText = {
     en: "is invalid.",
-    es: "no es valido.",
+    es: "es inválido.",
   };
 
   public static FIRST_LETTER_UPPERCASE: IValidationErrorText = {

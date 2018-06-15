@@ -218,8 +218,9 @@ export class Validation {
      *
      * @param regex Regex expression.
      * @param invert To switch, so the regex allows or dissallows the validation.
+     * @param name This will be showed in the error as the first word before "is invalid", example: content is invalid.
      */
-    public customRegex(regex: RegExp, invert: boolean = false): Validation {
+    public customRegex(regex: RegExp, invert: boolean = false, name: string = ""): Validation {
         return ContentValidators.customRegex(this, regex, invert);
     }
 
@@ -228,7 +229,7 @@ export class Validation {
      */
     public isEmail(): Validation {
         // tslint:disable-next-line:max-line-length
-        return ContentValidators.customRegex(this, /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
+        return ContentValidators.customRegex(this, /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/, false, "email");
     }
 }
 
@@ -279,14 +280,28 @@ export interface IValidationStored {
 }
 
 /**
- * Returns the error text in the configured language filter.
+ * Returns the error text in the configured language filter. You can also add thext at the beginning with the textToAdd parameter.
  */
-export function getErrorInLanguage(allLanguagesError: IValidationErrorText): IValidationErrorText {
-    if (Validation.languageFilter === LanguageFilter.all) {
-        return allLanguagesError;
+export function getErrorInLanguage(allLanguagesError: IValidationErrorText, textToAdd: string = ""): IValidationErrorText {
+    // Clone the errors object to modify it:
+    const allLangErrors: IValidationErrorText =   {...allLanguagesError};
+
+    // Add the extra text if any:
+    if (textToAdd && textToAdd !== "") {
+        for (const key in allLangErrors) {
+            if (allLangErrors.hasOwnProperty(key)) {
+                allLangErrors[key] = textToAdd + " " + allLangErrors[key];
+            }
+        }
     }
 
+    // If there is no language filter just return all as they entered in this function.
+    if (Validation.languageFilter === LanguageFilter.all) {
+        return allLangErrors;
+    }
+
+    // If there is a language filter create an empty error object with just a single language string on it (the selected one).
     const result: IValidationErrorText = {};
-    result[Validation.languageFilter as string] = allLanguagesError[Validation.languageFilter as string];
+    result[Validation.languageFilter as string] = allLangErrors[Validation.languageFilter as string];
     return result;
 }
