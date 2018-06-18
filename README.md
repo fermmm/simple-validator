@@ -82,20 +82,20 @@ This is useful server side, to improve performance when creating a JSON with the
 // Create the validators (Warning: in arrow functions if you write the {} you must also write return):
 class MyComponent extends React.Component {
     validators = {
+        email: (t) =>
+            new Validation(t)
+                .isEmail(),
         password: (t) =>
             new Validation(t)
                 .minChars(6)
-                .maxChars(70),
-        phone: (t) =>
-            new Validation(t)
-                .isEmail()
+                .maxChars(70)
     };
 
     // Apply validators to text fields (Just an example of a possible implementation):
     render() {
         return (
+            <MyInputComponent validator={this.validators.email} onChange={this.setState(...)}/>
             <MyInputComponent validator={this.validators.password} onChange={this.setState(...)}/>
-            <MyInputComponent validator={this.validators.phone} onChange={this.setState(...)}/>
         )
     }
     
@@ -104,8 +104,8 @@ class MyComponent extends React.Component {
         const { password, phoneNumber } = this.state;
 
         return (
-            this.validators.password(password).result.isValid &&
-            this.validators.phone(phoneNumber).result.isValid
+            this.validators.email(email).result.isValid &&
+            this.validators.password(password).result.isValid
         );
     }
 }
