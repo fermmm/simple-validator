@@ -111,7 +111,7 @@ class MyComponent extends React.Component {
 }
 ```
 
-MyInputComponent renders the validation results, that component is not provided here, there is an example component like this [here.](https://github.com/fermmm/simple-validator-react)
+MyInputComponent renders the input with the validation results, that component is not provided here, there is an example component like this [here.](https://github.com/fermmm/simple-validator-react)
 
 ## Donate
 
