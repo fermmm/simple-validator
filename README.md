@@ -66,7 +66,7 @@ Prints the following object:
 
 ## Library configuration
 
-As you see in the object returned errors descriptions contains the error texts in all the languages avaiable in this tool, to return an error object with only one language call this before other library calls:
+As you see in the object returned has errors descriptions, the error texts are sent in all the languages avaiable in this tool, to return an error object with only one language call this (before any other call):
 
 ```javascript
 Validation.languageFilter = LanguageFilter.english;
