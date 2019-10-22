@@ -4,7 +4,8 @@ This library validates content from input fields like: e-mail, name, ID, or anyt
 There is no visual implementation, it's vanilla JS, can be used on front-end or back-end.
 
 A visual implementation in React is available [in this repository.](https://github.com/fermmm/simple-validator-react) 
-Features:
+
+## Features:
    * Simple: only needs a string (the text of the input field).
    * Returns a specific description of the validation problem.
    * Returns the position of the validation problem in the string (to implement underline).
