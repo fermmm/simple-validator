@@ -66,14 +66,14 @@ Prints the following object:
 
 ## Library configuration
 
-By default error messages are objects that contains the error in all the languages, to return an error object with only one language call this before other library calls:
+As you see in the object returned errors descriptions contains the error texts in all the languages avaiable in this tool, to return an error object with only one language call this before other library calls:
 
 ```javascript
 Validation.languageFilter = LanguageFilter.english;
 ```
 
 With the language you want. 
-This is useful to implement your own translations based on the english language.
+This is useful to implement your own translation logic based on the english language.
 
 ## Usage example with React
 
