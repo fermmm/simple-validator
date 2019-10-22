@@ -8,7 +8,7 @@ A visual implementation in React is available [in this repository.](https://gith
 ## Features:
    * Simple: only needs a string (the text of the input field).
    * Returns a specific description of the validation problem.
-   * Returns the position of the validation problem in the string (to implement underline).
+   * Returns the position of the validation problem in the string (to implement a red underline or something like that).
    * Returns an autocorrected version of the string (to implement autocorrect).
    * You build the rules of the validation to cover any validation logic needed (see below).
    * Created in Typescript
