@@ -1,7 +1,7 @@
 # SIMPLE VALIDATOR
 
 This library validates content from input fields like: e-mail, name, ID, or anything.
-There is no visual implementation, it's vanilla JS, can be used on front-end or back-end.
+There is no visual implementation, you configure the validation and pass a string (the text that the user typed in the input field), returns an object with the information about the problems and the autocorrected version. It's vanilla JS, can be used on front-end or in Node.js.
 
 A visual implementation in React is available [in this repository.](https://github.com/fermmm/simple-validator-react) 
 
