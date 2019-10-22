@@ -120,7 +120,9 @@ export class StringTools {
     }
 
     public static removeCharacters(text: string, charactersIndexes: number[]): string {
-        for (const index of charactersIndexes) {
+        const charIndexesSorted: number[] = [...charactersIndexes];
+        charIndexesSorted.sort((a: number, b: number) => b - a);
+        for (const index of charIndexesSorted) {
             text = text.substring(0, index) + text.substring(index + 1, text.length);
         }
 
