@@ -72,8 +72,8 @@ By default error messages are objects that contains the error in all the languag
 Validation.languageFilter = LanguageFilter.english;
 ```
 
-With the language you want.
-This is useful server side, to improve performance when creating a JSON with the validation results.
+With the language you want. 
+This is useful to implement your own translations based on the english language.
 
 ## Usage example with React
 
