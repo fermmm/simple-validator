@@ -112,8 +112,10 @@ var StringTools = /** @class */ (function () {
         return text.split(/\s+/);
     };
     StringTools.removeCharacters = function (text, charactersIndexes) {
-        for (var _i = 0, charactersIndexes_1 = charactersIndexes; _i < charactersIndexes_1.length; _i++) {
-            var index = charactersIndexes_1[_i];
+        var charIndexesSorted = charactersIndexes.slice();
+        charIndexesSorted.sort(function (a, b) { return b - a; });
+        for (var _i = 0, charIndexesSorted_1 = charIndexesSorted; _i < charIndexesSorted_1.length; _i++) {
+            var index = charIndexesSorted_1[_i];
             text = text.substring(0, index) + text.substring(index + 1, text.length);
         }
         return text;
