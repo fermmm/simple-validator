@@ -33,7 +33,7 @@ function init(testValidation: (text: string) => Validation, autoCorrect: boolean
     input.addEventListener("input", (e: Event) => {
         const validation: Validation = testValidation(input.value);
         console.log(validation.result);
-        console.log(JSON.stringify(validation.result));
+        // console.log(JSON.stringify(validation.result));
 
         if (autoCorrect) {
             input.value = validation.result.text;
