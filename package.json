@@ -37,7 +37,7 @@
         "csv-loader": "2.1.1",
         "expose-loader": "0.7.5",
         "file-loader": "1.1.11",
-        "node-sass": "4.8.3",
+        "node-sass": "4.14.1",
         "open-browser-webpack-plugin": "0.0.5",
         "sass-loader": "6.0.7",
         "script-loader": "0.7.2",
