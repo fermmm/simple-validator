@@ -3,6 +3,7 @@
 This library validates content from strings and throws validation problems, is ment to be used to validate input fields on forms. Returns autocorrected version and specific position of the problem to implement a visual underline (this is a unique feature from this package).
 You pass a string and the library returns an object with the information about the problems and the autocorrected version.
 Implemented in Typescript with no dependencies, can be used also in Node.js.
+
 Supported languages for problem descriptions: English and Spanish.
 
 ## Features:
