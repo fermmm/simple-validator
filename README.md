@@ -7,14 +7,15 @@ Implemented in Typescript with no dependencies, can be used also in Node.js.
 Supported languages for problem descriptions: English and Spanish.
 
 ## Features:
-   * Simple: only needs a string (the text of the input field).
-   * Returns a specific description of the validation problem.
-   * Returns the position of the validation problem in the string (to implement a red underline).
-   * Returns an autocorrected version of the string (to implement autocorrect while typing).
-   * You build the rules of the validation by chaining functions (see below).
+   * Simple: only needs a string (the text of the input field)
+   * No dependencies
+   * Returns a specific description of the validation problem
+   * Returns the position of the validation problem in the string (to implement a red underline)
+   * Returns an autocorrected version of the string (to implement autocorrect while typing)
+   * You build the rules of the validation by chaining functions (see below)
    * Created in Typescript
    * Tested in production
-   * Fully documented with jsdoc and TypeScript, you should see documentation with autocomplete.
+   * Fully documented with jsdoc and TypeScript, you should see documentation with autocomplete
 
 
 
