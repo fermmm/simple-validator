@@ -14,7 +14,7 @@ Supported languages for problem descriptions: English and Spanish.
    * Returns an autocorrected version of the string (to implement autocorrect while typing)
    * You build the rules of the validation by chaining functions (see below)
    * Created in Typescript
-   * Tested in production
+   * Tested in production and improved based on users feedback
    * Fully documented with jsdoc and TypeScript, you should see documentation with autocomplete
 
 
